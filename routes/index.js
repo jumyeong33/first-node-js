@@ -1,0 +1,33 @@
+var express = require('express');
+var router = express.Router();
+
+const bookCtrl = require('../controllers/bookController')
+
+//GET HOMEPAGE
+// router.get('/', function(req, res, next) {
+//     res.json({
+//       success: 0,
+//       status: 404,
+//       msg: 'Invalid request!'
+//     })
+//   });
+
+ // GET ALL BOOKS
+//  router.get('/api/books', bookCtrl);
+
+// // GET SINGLE BOOK
+// router.get('/api/books/:book_id', bookCtrl);
+
+// // GET BOOK BY AUTHOR
+// router.get('/api/books/author/:author', bookCtrl);
+
+// // CREATE BOOK
+router.post('/api/books', bookCtrl.addBook);
+
+// // UPDATE THE BOOK
+// router.put('/api/books/:book_id', bookCtrl);
+
+// // DELETE BOOK
+// router.delete('/api/books/:book_id', bookCtrl);
+
+module.exports = router;
