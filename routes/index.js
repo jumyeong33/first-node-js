@@ -12,14 +12,14 @@ const bookCtrl = require('../controllers/bookController')
 //     })
 //   });
 
- // GET ALL BOOKS
-//  router.get('/api/books', bookCtrl);
+//  GET ALL BOOKS
+ router.get('/api/books', bookCtrl.allBooks);
 
 // // GET SINGLE BOOK
-// router.get('/api/books/:book_id', bookCtrl);
+router.get('/api/books/:book_id', bookCtrl);
 
-// // GET BOOK BY AUTHOR
-// router.get('/api/books/author/:author', bookCtrl);
+// GET BOOK BY AUTHOR
+router.get('/api/books/author/:author', bookCtrl.findBookByAuthor);
 
 // // CREATE BOOK
 router.post('/api/books', bookCtrl.addBook);
