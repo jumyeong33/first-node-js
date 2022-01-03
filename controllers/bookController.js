@@ -80,5 +80,38 @@ module.exports = {
                 msg: 'Oops. Something went wrong. Please try again.'
             })
         }
+    },
+    findBook : (req, res) => {
+        try {
+                if (!req.params.book_id) {
+                    return res.json({
+                        success: 0,
+                        status: 400,
+                        data: null,
+                        msg: 'Required parameters not set'
+                });
+            }
+            db.book.findOne(
+                {_id : req.params.book_id},
+                (err, book) => {
+                    if (err) {
+                        return res.json({
+                            success: 0,
+                            status: 400,
+                            data: null,
+                            msg: 'Oops. Something went wrong. Please try again.'
+                        })
+                    }
+                res.json(book);
+                }
+            )
+         } catch (err) {
+            res.json({
+                success: 0,
+                status: 400,
+                data: [],
+                msg: 'Oops! Something went wrong. Please try again.'
+            })
+         }
     }
 }

@@ -16,7 +16,7 @@ const bookCtrl = require('../controllers/bookController')
  router.get('/api/books', bookCtrl.allBooks);
 
 // // GET SINGLE BOOK
-router.get('/api/books/:book_id', bookCtrl);
+router.get('/api/books/:book_id', bookCtrl.findBook);
 
 // GET BOOK BY AUTHOR
 router.get('/api/books/author/:author', bookCtrl.findBookByAuthor);
