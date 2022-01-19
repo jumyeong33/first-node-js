@@ -25,7 +25,7 @@ router.get('/api/books/author/:author', bookCtrl.findBookByAuthor);
 router.post('/api/books', bookCtrl.addBook);
 
 // // UPDATE THE BOOK
-// router.put('/api/books/:book_id', bookCtrl);
+router.put('/api/books/:book_id', bookCtrl.updateBook);
 
 // // DELETE BOOK
 // router.delete('/api/books/:book_id', bookCtrl);

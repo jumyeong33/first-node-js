@@ -113,5 +113,37 @@ module.exports = {
                 msg: 'Oops! Something went wrong. Please try again.'
             })
          }
+    },
+    updateBook : (req, res) => {
+        //USING UPDATE METHOD
+        db.book.updateOne(
+            {_id : req.params.book_id},
+            { $set : req.body},
+            (err, output) => {
+                if (err) res.status(500).json({error : 'database failure'})
+                console.log(output);
+                if (!output.acknowledged) return res.status(404).json({error : 'book not found'});
+                res.json({ messge : 'book updated'})
+            }
+        )
+        //USING FIND METHOD
+        // db.book.findById(req.params.book_id, (err, book) => {
+        //     if (err) return res.status(500).json({error : 'database failure'});
+        //     if (!book) return res.status(404).json({error : 'book not found'});
+
+        //     book.title = req.body.title;
+        //     book.author = req.body.author;
+        //     book.published_date = req.body.published_date;
+            
+        //     book.save().then(result => {
+        //         res.json(result)
+        //     }).catch(err =>{
+        //         res.json({
+        //             success :0,
+        //             status : 400,
+        //             msg : 'Oops! Something went wrong. Data is not saved.'
+        //         })
+        //     })
+        // });
     }
 }
